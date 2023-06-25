@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const { readdirSync } = require("fs");
 require("dotenv").config();
 const authRoutes = require("./routes/auth");
 const adminRoutes=require('./routes/admin')
@@ -38,7 +37,6 @@ app.use(bodyParser.json({ limit: "2mb" }));
 app.use(cors());
 
 // routes middleware
-readdirSync("./routes").map((r) => app.use("/api", require("./routes/" + r)));
 app.use("/api", authRoutes);
 app.use("/api", adminRoutes);
 
