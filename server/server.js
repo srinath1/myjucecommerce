@@ -8,7 +8,7 @@ require("dotenv").config();
 const authRoutes = require("./routes/auth");
 const adminRoutes=require('./routes/admin')
 const cloudinaryRoutes=require('./routes/cloudinary')
-const couponRoutes=require('./routes/coupon')
+const couponRoutes=require('./routes/coupan')
 const productRoutes=require('./routes/product')
 const stripeRoutes=require('./routes/stripe')
 const subRoutes=require('./routes/sub')
