@@ -5,6 +5,19 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const { readdirSync } = require("fs");
 require("dotenv").config();
+const authRoutes = require("./routes/auth");
+const adminRoutes=require('./routes/admin')
+const cloudinaryRoutes=require('./routes/cloudinary')
+const couponRoutes=require('./routes/coupon')
+const productRoutes=require('./routes/product')
+const stripeRoutes=require('./routes/stripe')
+const subRoutes=require('./routes/sub')
+const userRoutes=require('./routes/user')
+
+
+
+
+
 
 // app
 const app = express();
@@ -26,6 +39,21 @@ app.use(cors());
 
 // routes middleware
 readdirSync("./routes").map((r) => app.use("/api", require("./routes/" + r)));
+app.use("/api", authRoutes);
+app.use("/api", adminRoutes);
+
+app.use("/api", cloudinaryRoutes);
+
+app.use("/api", couponRoutes);
+
+app.use("/api", productRoutes);
+
+app.use("/api", stripeRoutes);
+app.use("/api", subRoutes);
+
+app.use("/api", userRoutes);
+
+
 const path = require("path");
 __dirname = path.resolve();
 // render deployment
